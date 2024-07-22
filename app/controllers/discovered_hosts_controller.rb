@@ -64,7 +64,7 @@ class DiscoveredHostsController < ::ApplicationController
     @override_taxonomy = true
     # need to permit this one but don't know how
     if quick
-      name = @host.name if name.nil? || name.empty?
+      name = @host.name if name.blank?
       perform_update(@host, _('Successfully started provision for %s') % name)
     else
       @host.build = true
